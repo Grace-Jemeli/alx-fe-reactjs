@@ -1,4 +1,3 @@
-
 function MainContent() {
   return (
     <main>
