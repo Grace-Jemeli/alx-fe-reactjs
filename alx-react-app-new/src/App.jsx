@@ -2,6 +2,7 @@ import UserProfile from './components/UserProfile';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
+import Counter from './components/counter';
 import WelcomeMessage from './components/WelcomeMessage'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
@@ -38,6 +39,10 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+      </div>
+      <div>
+        <h1>Simple Counter Application</h1>
+        <Counter />
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
