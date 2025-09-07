@@ -2,7 +2,7 @@
 const UserProfile = (props) => {
   return (
     <div>
-      <h2 style={{ color: 'blue', border: '10px', padding: '5px', margin: '2px', }}>{props.name}</h2>
+      <h2 style={{ color: 'blue', border: '3px solid black', padding: '5px', margin: '2px', }}>{props.name}</h2>
       <p>Age:<span style={{ fontWeight: 'bold' }}></span> {props.age}</p>
       <p style={{ color: 'red' }}>Bio: {props.bio}</p>
     </div>
