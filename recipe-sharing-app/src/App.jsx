@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
+import RecipeDetails from './components/RecipeDetails';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,11 +32,26 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <div>
-        <h1>Recipe Sharing App</h1>
-        <AddRecipeForm />
-        <RecipeList />
-      </div>
+
+      <Router>
+        <nav>
+          <Link to="/">Home</Link>
+        </nav>
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <h1>Recipe Sharing App</h1>
+                <AddRecipeForm />
+                <RecipeList />
+              </div>
+            }
+          />
+          <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
+        </Routes>
+      </Router>
 
     </>
   )
