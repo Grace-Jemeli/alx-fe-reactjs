@@ -21,7 +21,7 @@ const Search = () => {
       if (location) query += `+location:${location}`;
       if (minRepos) query += `+repos:>${minRepos}`;
 
-      const data = await fetchUserData(query);
+      const data = await fetchUserData(username, location, minRepos);
       if (data.length === 0) {
         setError("Looks like we cant find the user");
       } else {
