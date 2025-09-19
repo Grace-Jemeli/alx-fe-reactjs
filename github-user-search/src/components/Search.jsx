@@ -19,7 +19,7 @@ function Search() {
       const data = await fetchUserData(username);
       setUser(data);
     } catch (err) {
-      setError('Looks like we can’t find the user');
+      setError('Looks like we cant find the user');
     } finally {
       setLoading(false);
     }
@@ -40,6 +40,7 @@ function Search() {
       {/* Conditional rendering based on state */}
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
+
       {user && (
         <div>
           <img src={user.avatar_url} alt={user.login} width="100" />
