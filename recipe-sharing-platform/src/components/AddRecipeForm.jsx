@@ -6,7 +6,7 @@ const AddRecipeForm = () => {
   const [instructions, setInstructions] = useState("");
   const [errors, setErrors] = useState({});
 
-  // ✅ Validation function required by checker
+  // ✅ Validation function
   const validate = () => {
     const newErrors = {};
     if (!title.trim()) newErrors.title = "Recipe title is required.";
@@ -24,7 +24,7 @@ const AddRecipeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newErrors = validate(); // ✅ use validate() here
+    const newErrors = validate();
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
@@ -56,7 +56,7 @@ const AddRecipeForm = () => {
         className="bg-white shadow-lg rounded-xl p-6 space-y-6"
       >
         {/* Title */}
-        <div>
+        <div className="md:flex md:flex-col">
           <label className="block text-gray-700 font-medium mb-2">
             Recipe Title
           </label>
@@ -64,7 +64,7 @@ const AddRecipeForm = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full md:w-2/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter recipe title"
           />
           {errors.title && (
@@ -73,7 +73,7 @@ const AddRecipeForm = () => {
         </div>
 
         {/* Ingredients */}
-        <div>
+        <div className="md:flex md:flex-col">
           <label className="block text-gray-700 font-medium mb-2">
             Ingredients (one per line)
           </label>
@@ -81,7 +81,7 @@ const AddRecipeForm = () => {
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
             rows="4"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full md:w-2/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter each ingredient on a new line"
           ></textarea>
           {errors.ingredients && (
@@ -90,7 +90,7 @@ const AddRecipeForm = () => {
         </div>
 
         {/* Instructions */}
-        <div>
+        <div className="md:flex md:flex-col">
           <label className="block text-gray-700 font-medium mb-2">
             Preparation Steps
           </label>
@@ -98,7 +98,7 @@ const AddRecipeForm = () => {
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
             rows="6"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full md:w-2/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Describe the preparation steps"
           ></textarea>
           {errors.instructions && (
@@ -110,7 +110,7 @@ const AddRecipeForm = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition md:px-10 md:py-3"
           >
             Submit Recipe
           </button>
